@@ -98,21 +98,31 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <p className="text-[#49636b] leading-relaxed">{p.description}</p>
                 </div>
 
-                {/* Floor plan placeholder */}
+                {/* Floor plan */}
                 <div className="bg-white rounded-2xl p-8 border border-[#e8e8e8]">
                   <h2 className="text-xl font-extrabold text-[#36494f] mb-2">Планировка</h2>
                   <p className="text-[#49636b] text-sm mb-6">Типовая планировка для дома {p.area} м², {p.floors} эт. Индивидуальный план формируется под ваш проект.</p>
-                  <div className="bg-[#f7f8f7] rounded-xl aspect-[4/3] flex flex-col items-center justify-center text-[#49636b] gap-3 border border-dashed border-[#e8e8e8]">
-                    <Layers size={40} className="text-[#109e4c]/40" />
-                    <p className="text-sm font-medium">Планировка предоставляется по запросу</p>
-                    <CtaButton
-                      label="Получить планировку"
-                      title={`Планировка: ${p.title}`}
-                      source={`Детальная страница — ${p.slug}`}
-                      variant="green"
-                      size="sm"
-                    />
-                  </div>
+                  {p.plans && p.plans.length > 0 ? (
+                    <div className="flex flex-col gap-4">
+                      {p.plans.map((plan, i) => (
+                        <div key={i} className="relative w-full rounded-xl overflow-hidden bg-[#f7f8f7] border border-[#e8e8e8]">
+                          <Image src={plan} alt={`${p.title} — планировка ${i + 1}`} width={900} height={600} className="w-full h-auto object-contain" />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="bg-[#f7f8f7] rounded-xl aspect-[4/3] flex flex-col items-center justify-center text-[#49636b] gap-3 border border-dashed border-[#e8e8e8]">
+                      <Layers size={40} className="text-[#109e4c]/40" />
+                      <p className="text-sm font-medium">Планировка предоставляется по запросу</p>
+                      <CtaButton
+                        label="Получить планировку"
+                        title={`Планировка: ${p.title}`}
+                        source={`Детальная страница — ${p.slug}`}
+                        variant="green"
+                        size="sm"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
 
