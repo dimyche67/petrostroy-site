@@ -24,8 +24,7 @@ export default function Hero() {
         sizes="100vw"
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#36494f]/95 via-[#36494f]/80 to-[#36494f]/30" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#36494f]/60 to-transparent" />
+      <div className="absolute inset-0 bg-[#36494f]/60" />
 
       {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col justify-center pt-24 pb-12">
