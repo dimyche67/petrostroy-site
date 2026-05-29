@@ -10,6 +10,7 @@ import Reviews from "@/components/sections/Reviews";
 import Process from "@/components/sections/Process";
 import Mortgage from "@/components/sections/Mortgage";
 import ContactForm from "@/components/sections/ContactForm";
+import NewsPreview from "@/components/sections/NewsPreview";
 
 export const metadata: Metadata = {
   title: "Строительство домов под ключ в СПб и МО | Петрострой",
@@ -31,6 +32,7 @@ export default function HomePage() {
         <Reviews />
         <Process />
         <Mortgage />
+        <NewsPreview />
         <ContactForm />
       </main>
       <Footer />
