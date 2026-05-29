@@ -6,7 +6,8 @@ import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/sections/ContactForm";
 import CtaButton from "@/components/ui/CtaButton";
 import { projects } from "@/lib/data";
-import { Maximize2, MapPin, Calendar, Layers, ArrowLeft, ArrowRight } from "lucide-react";
+import { Layers, ArrowLeft, ArrowRight } from "lucide-react";
+import PhotoGallery from "@/components/ui/PhotoGallery";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -79,16 +80,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               <div className="lg:col-span-2 flex flex-col gap-8">
 
                 {/* Gallery */}
-                {p.images.length > 1 && (
+                {p.images.length > 0 && (
                   <div>
                     <h2 className="text-xl font-extrabold text-[#36494f] mb-4">Фотографии</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {p.images.map((img, i) => (
-                        <div key={i} className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#e8e8e8]">
-                          <Image src={img} alt={`${p.title} — фото ${i + 1}`} fill className="object-cover hover:scale-105 transition-transform duration-500" />
-                        </div>
-                      ))}
-                    </div>
+                    <PhotoGallery images={p.images} title={p.title} />
                   </div>
                 )}
 
