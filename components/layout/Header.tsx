@@ -36,6 +36,7 @@ const nav = [
       { label: "Акции", href: "/about/akczii" },
       { label: "Гарантии", href: "/about/garantii" },
       { label: "Новости", href: "/category/news" },
+      { label: "Партнёры", href: "/partnery" },
       { label: "Бизнесу", href: "/biznesu" },
       { label: "Способы оплаты", href: "/sposoby-oplaty" },
     ],
