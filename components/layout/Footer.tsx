@@ -2,6 +2,13 @@ import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import { Phone, MapPin, Mail } from "lucide-react";
 
+const socials = [
+  { label: "ВКонтакте", href: "https://vk.com/petrostroybiz", icon: "VK" },
+  { label: "Rutube", href: "https://rutube.ru/channel/54703076", icon: "RT" },
+  { label: "Telegram", href: "https://t.me/petrostroybizy", icon: "TG" },
+  { label: "WhatsApp", href: "https://wa.me/79812153218", icon: "WA" },
+];
+
 const cols = [
   { title: "Услуги", links: [
     { label: "Строительство домов", href: "/uslugi/stroitelstvo-domov" },
@@ -50,9 +57,19 @@ export default function Footer() {
               <div className="flex items-center gap-2 text-white/55 text-sm">
                 <MapPin size={14} className="text-[#109e4c]" /> СПб, ул. Афонская, д. 2, лит. А
               </div>
-              <a href="mailto:info@petrostroy.biz" className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors">
-                <Mail size={14} className="text-[#109e4c]" /> info@petrostroy.biz
+              <a href="mailto:sales@petrostroy.biz" className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors">
+                <Mail size={14} className="text-[#109e4c]" /> sales@petrostroy.biz
               </a>
+            </div>
+            <div className="flex gap-3 mt-6">
+              {socials.map((s) => (
+                <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#109e4c] flex items-center justify-center text-white/70 hover:text-white text-xs font-bold transition-all"
+                  aria-label={s.label}
+                >
+                  {s.icon}
+                </a>
+              ))}
             </div>
           </div>
 
