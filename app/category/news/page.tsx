@@ -79,7 +79,6 @@ export default function NewsPage() {
                     <div className="flex items-center gap-2 mb-3">
                       <span className="bg-[#109e4c]/10 text-[#109e4c] text-xs font-semibold px-2.5 py-1 rounded-full">{p.cat}</span>
                       <span className="text-[#49636b] text-xs">{p.date}</span>
-                      <span className="text-[#49636b] text-xs ml-auto">{p.read}</span>
                     </div>
                     <h3 className="font-bold text-[#36494f] text-sm leading-snug mb-2 group-hover:text-[#109e4c] transition-colors">{p.title}</h3>
                     <p className="text-[#49636b] text-xs leading-relaxed line-clamp-2">{p.text}</p>
