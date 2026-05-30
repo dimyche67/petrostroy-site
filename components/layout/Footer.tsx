@@ -81,6 +81,9 @@ export default function Footer() {
               <div className="flex items-center gap-2 text-white/55 text-sm">
                 <MapPin size={14} className="text-[#109e4c]" /> СПб, ул. Афонская, д. 2, лит. А
               </div>
+              <div className="flex items-center gap-2 text-white/55 text-sm">
+                <MapPin size={14} className="text-[#109e4c]" /> Москва, Рязанский пр-т, 3Б, БЦ «10», оф. 415
+              </div>
               <a href="mailto:sales@petrostroy.biz" className="flex items-center gap-2 text-white/70 hover:text-white text-sm transition-colors">
                 <Mail size={14} className="text-[#109e4c]" /> sales@petrostroy.biz
               </a>
