@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 async function sendToSheets({ name, phone, message, source }: { name: string; phone: string; message?: string; source?: string }) {
-  const url = "https://script.google.com/macros/s/AKfycbxyq6mrwjbbADG2Bm_5FPFLa-tZxrWnUIsSV0AI6ihsYdlnjKHuGLx_Tgun_ScsZv5O/exec";
+  const url = "https://script.google.com/macros/s/AKfycbzhJiKuppuamGXfF9_FGuOetIyWEOfcdoROLJTNwXA6_rSlfQ_Elg328mL7k7lBDSHO/exec";
   const params = new URLSearchParams({
     name: encodeURIComponent(name),
     phone: encodeURIComponent(phone),
