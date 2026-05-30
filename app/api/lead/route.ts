@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
 async function sendToSheets({ name, phone, message, source }: { name: string; phone: string; message?: string; source?: string }) {
-  const url = "https://script.google.com/macros/s/AKfycbyIRqRfs9Clu1ddC8NaOt4SaruPioYqjznv02VnPhxKkwI9YSo_9AsO8e5mt30WikIS/exec";
-  const params = new URLSearchParams({ name, phone, message: message || "", source: source || "Сайт" });
-  await fetch(`${url}?${params.toString()}`, {
-    method: "POST",
-    redirect: "follow",
-  }).catch(() => {});
+  const url = "https://script.google.com/macros/s/AKfycbxyq6mrwjbbADG2Bm_5FPFLa-tZxrWnUIsSV0AI6ihsYdlnjKHuGLx_Tgun_ScsZv5O/exec";
+  const params = new URLSearchParams({
+    name: encodeURIComponent(name),
+    phone: encodeURIComponent(phone),
+    message: encodeURIComponent(message || ""),
+    source: encodeURIComponent(source || "Сайт"),
+  });
+  await fetch(`${url}?${params.toString()}`, { redirect: "follow" }).catch(() => {});
 }
 
 async function sendTelegram({ name, phone, message, source }: { name: string; phone: string; message?: string; source?: string }) {
