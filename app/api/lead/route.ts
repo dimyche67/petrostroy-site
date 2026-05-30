@@ -1,5 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
+async function sendToSheets({ name, phone, message, source }: { name: string; phone: string; message?: string; source?: string }) {
+  const url = "https://script.google.com/macros/s/AKfycbyIRqRfs9Clu1ddC8NaOt4SaruPioYqjznv02VnPhxKkwI9YSo_9AsO8e5mt30WikIS/exec";
+  await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, phone, message, source }),
+  }).catch(() => {});
+}
+
 async function sendTelegram({ name, phone, message, source }: { name: string; phone: string; message?: string; source?: string }) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -33,6 +42,7 @@ export async function POST(req: NextRequest) {
       // Dev mode — log and return success without sending to Bitrix24
       console.log("[Bitrix24] BITRIX24_WEBHOOK_URL не задан. Данные заявки:", { name, phone, message, source });
       await sendTelegram({ name, phone, message, source });
+      await sendToSheets({ name, phone, message, source });
       return NextResponse.json({ ok: true, dev: true });
     }
 
@@ -58,6 +68,7 @@ export async function POST(req: NextRequest) {
 
     if (data.result) {
       await sendTelegram({ name, phone, message, source });
+      await sendToSheets({ name, phone, message, source });
       return NextResponse.json({ ok: true, id: data.result });
     }
 
