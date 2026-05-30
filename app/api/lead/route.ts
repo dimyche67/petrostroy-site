@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 async function sendToSheets({ name, phone, message, source }: { name: string; phone: string; message?: string; source?: string }) {
-  const url = "https://script.google.com/macros/s/AKfycbzhJiKuppuamGXfF9_FGuOetIyWEOfcdoROLJTNwXA6_rSlfQ_Elg328mL7k7lBDSHO/exec";
+  const url = "https://script.google.com/macros/s/AKfycby5UYFKAf8q-KHyYSQwePMHVRZHR-pZLmSo1SJ4deibKEifvJpduKp6hEIVGeRQhq0/exec";
   const params = new URLSearchParams({ name, phone, message: message || "", source: source || "Сайт" });
   await fetch(`${url}?${params.toString()}`, { redirect: "follow" }).catch(() => {});
 }
