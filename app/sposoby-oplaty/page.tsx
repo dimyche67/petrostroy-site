@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/sections/PageHero";
 import ContactForm from "@/components/sections/ContactForm";
+import MortgageCalculator from "@/components/ui/MortgageCalculator";
 
 export const metadata: Metadata = {
   title: "Способы оплаты строительства | Петрострой СПб",
@@ -42,22 +43,7 @@ export default function SposobyOplatyPage() {
                 </div>
               ))}
             </div>
-            <div className="bg-[#f7f8f7] rounded-2xl p-8 border border-[#e8e8e8]">
-              <h3 className="font-bold text-[#36494f] text-lg mb-4">Калькулятор ипотеки</h3>
-              <div className="grid grid-cols-3 gap-4 mb-4 text-sm">
-                {[["Стоимость дома","10 000 000 ₽"],["Ставка","6% годовых"],["Срок","20 лет"]].map(([k,v])=>(
-                  <div key={k} className="bg-white rounded-xl p-4 border border-[#e8e8e8]">
-                    <div className="text-[#49636b] text-xs mb-1">{k}</div>
-                    <div className="font-bold text-[#36494f]">{v}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-[#49636b] text-sm">Платёж в месяц:</span>
-                <span className="font-extrabold text-[#109e4c] text-2xl">≈ 71 600 ₽</span>
-                <span className="text-[#49636b] text-xs">(ориентировочно)</span>
-              </div>
-            </div>
+            <MortgageCalculator />
           </div>
         </section>
         <ContactForm />
