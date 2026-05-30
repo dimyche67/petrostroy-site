@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 async function sendToSheets({ name, phone, message, source }: { name: string; phone: string; message?: string; source?: string }) {
   const url = "https://script.google.com/macros/s/AKfycbyIRqRfs9Clu1ddC8NaOt4SaruPioYqjznv02VnPhxKkwI9YSo_9AsO8e5mt30WikIS/exec";
-  await fetch(url, {
+  const params = new URLSearchParams({ name, phone, message: message || "", source: source || "Сайт" });
+  await fetch(`${url}?${params.toString()}`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, phone, message, source }),
+    redirect: "follow",
   }).catch(() => {});
 }
 
